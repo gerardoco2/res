@@ -1,0 +1,2 @@
+module TipoPropsHelper
+end

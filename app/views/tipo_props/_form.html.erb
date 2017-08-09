@@ -1,0 +1,59 @@
+<%= form_with(model: tipo_prop, local: true) do |form| %>
+  <% if tipo_prop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo_prop.errors.count, "error") %> prohibited this tipo_prop from being saved:</h2>
+
+      <ul>
+      <% tipo_prop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="col-lg-8">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Tipo de Prop</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <form role="form" class="form-inline">
+                                <div class="form-group">
+                           
+
+                                    <%= form.label :nombre %>
+                                    <%= form.text_field :nombre, id: :tipo_prop_nombre, class: "form-control"%>
+                                 
+                                </div>
+                                <div class="form-group">
+                                    <%= form.label :status %>
+                                    <%= form.text_field :status, id: :tipo_prop_status, class: "form-control" %>
+                                </div>
+                               
+                                  <%= form.submit "Guardar"%>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+<% end %>

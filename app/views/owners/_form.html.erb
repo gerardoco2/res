@@ -1,0 +1,48 @@
+<%= form_with(model: owner, local: true) do |form| %>
+  <% if owner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(owner.errors.count, "error") %> prohibited this owner from being saved:</h2>
+
+      <ul>
+      <% owner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :owner_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apellido %>
+    <%= form.text_field :apellido, id: :owner_apellido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_nac %>
+    <%= form.date_select :fecha_nac, id: :owner_fecha_nac %>
+    
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :owner_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono %>
+    <%= form.text_field :telefono, id: :owner_telefono %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sexo %>
+    <%= form.text_field :sexo, id: :owner_sexo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

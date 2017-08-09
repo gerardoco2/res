@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @owner.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @owner.apellido %>
+</p>
+
+<p>
+  <strong>Fecha nac:</strong>
+  <%= @owner.fecha_nac %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @owner.email %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @owner.telefono %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @owner.sexo %>
+</p>
+
+<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<%= link_to 'Back', owners_path %>

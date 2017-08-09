@@ -1,0 +1,52 @@
+<%= form_with(model: property, local: true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_field :direccion, id: :property_direccion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, id: :property_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nro_hab %>
+    <%= form.number_field :nro_hab, id: :property_nro_hab %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nro_bannos %>
+    <%= form.number_field :nro_bannos, id: :property_nro_bannos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.text_field :area, id: :property_area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :property_status %>
+  </div>
+  <div class="field">
+    <%= form.label :tipo_prop_id %>
+    <%= collection_select( :property, :tipo_prop_id, TipoProp.all, :id, :nombre, {}) %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

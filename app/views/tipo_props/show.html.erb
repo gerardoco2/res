@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tipo_prop.nombre %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @tipo_prop.status %>
+</p>
+
+<%= link_to 'Edit', edit_tipo_prop_path(@tipo_prop) %> |
+<%= link_to 'Back', tipo_props_path %>

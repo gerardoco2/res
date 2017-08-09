@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @estado.nombre %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @estado.zip %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @estado.status %>
+</p>
+
+<%= link_to 'Edit', edit_estado_path(@estado) %> |
+<%= link_to 'Back', estados_path %>

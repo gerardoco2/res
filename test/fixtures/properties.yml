@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  direccion: MyString
+  descripcion: MyString
+  nro_hab: 1
+  nro_bannos: 1
+  area: 9.99
+  status: MyString
+
+two:
+  direccion: MyString
+  descripcion: MyString
+  nro_hab: 1
+  nro_bannos: 1
+  area: 9.99
+  status: MyString
