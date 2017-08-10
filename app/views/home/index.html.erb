@@ -5,6 +5,9 @@
                 <h1>
                     <%= @mainTitle %>
                 </h1>
+                <% @properties.each do |p|%>
+                    <%= p.descripcion %>
+                <% end %>
                 <small>
                     <%= @mainDesc %>
                 </small>

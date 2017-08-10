@@ -32,3 +32,15 @@
 
 <%= link_to 'Edit', edit_owner_path(@owner) %> |
 <%= link_to 'Back', owners_path %>
+
+<hr>
+<h1> Owner's Properties :</h1>
+
+ <% @properties.each do |property| %>
+   <%= link_to property.direccion,  owner_property_path(@owner.id, property.id) %><br />
+<% end %>
+
+<hr>
+<%= link_to "Registrar una Propiedad", new_owner_property_path(@owner.id) %>
+
+

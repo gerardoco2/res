@@ -24,9 +24,7 @@
         <td><%= property.nro_bannos %></td>
         <td><%= property.area %></td>
         <td><%= property.status %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Property', new_property_path %>
+

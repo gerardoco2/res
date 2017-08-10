@@ -1,5 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :set_owner, only: [:show, :edit, :new, :create, :update, :destroy]
+
 
   # GET /properties
   # GET /properties.json
@@ -25,10 +27,10 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(property_params)
-
+    @property.owner_id = @owner.id
     respond_to do |format|
       if @property.save
-        format.html { redirect_to @property, notice: 'Property was successfully created.' }
+        format.html { redirect_to owner_url(@property.owner_id), notice: 'Property was successfully created.' }
         format.json { render :show, status: :created, location: @property }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class PropertiesController < ApplicationController
   def update
     respond_to do |format|
       if @property.update(property_params)
-        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
+        format.html { redirect_to owner_url(@property.owner_id), notice: 'Property was successfully updated.' }
         format.json { render :show, status: :ok, location: @property }
       else
         format.html { render :edit }
@@ -67,8 +69,14 @@ class PropertiesController < ApplicationController
       @property = Property.find(params[:id])
     end
 
+    def set_owner
+      @owner = Owner.find(params[:owner_id])
+    end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:direccion, :descripcion, :nro_hab, :nro_bannos, :area, :status, :tipo_prop_id)
+      params.require(:property).permit(:direccion, :descripcion, :nro_hab, :nro_bannos, :area, :status, :tipo_prop_id, :ciudad_id, :estado_id)
     end
+
 end

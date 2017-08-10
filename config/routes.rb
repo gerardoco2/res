@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :ciudads
   resources :estados
-  
+  resources :properties
   resources :owners do
     resources :properties
   end

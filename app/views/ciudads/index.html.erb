@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+    <tr>id</tr>
       <th>Nombre</th>
       <th>Codigo area</th>
       <th>Status</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @ciudads.each do |ciudad| %>
       <tr>
+        <td><%= ciudad.id %></td>
         <td><%= ciudad.nombre %></td>
         <td><%= ciudad.codigo_area %></td>
         <td><%= ciudad.status %></td>

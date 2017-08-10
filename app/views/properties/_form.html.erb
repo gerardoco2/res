@@ -1,4 +1,4 @@
-<%= form_with(model: property, local: true) do |form| %>
+<%= form_for [@owner, @property] do |form| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -45,6 +45,14 @@
   <div class="field">
     <%= form.label :tipo_prop_id %>
     <%= collection_select( :property, :tipo_prop_id, TipoProp.all, :id, :nombre, {}) %>
+  </div>
+  <div class="field">
+    <%= form.label :estado_id %>
+    <%= form.collection_select( :estado_id, Estado.all, :id, :nombre, { include_blank: 'Seleccione'})  %>
+  </div>
+  <div class="field">
+    <%= form.label :ciudad_id %>
+    <%= form.collection_select(:ciudad_id, Ciudad.all, :id, :nombre, { include_blank: 'Seleccione'})%>
   </div>
   <div class="actions">
     <%= form.submit %>
