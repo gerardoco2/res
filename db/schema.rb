@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170809171157) do
+ActiveRecord::Schema.define(version: 20170810205523) do
 
   create_table "ciudads", force: :cascade do |t|
     t.string "nombre"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20170809171157) do
     t.integer "owner_id"
     t.integer "estado_id"
     t.integer "ciudad_id"
+    t.decimal "precio"
+    t.string "titulo"
   end
 
   create_table "tipo_props", force: :cascade do |t|

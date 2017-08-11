@@ -13,6 +13,10 @@
 
 
 
+<div class="field">
+    <%= form.label :titulo %>
+    <%= form.text_field :titulo, id: :property_titulo %>
+  </div>
   <div class="field">
     <%= form.label :direccion %>
     <%= form.text_field :direccion, id: :property_direccion %>
@@ -37,7 +41,10 @@
     <%= form.label :area %>
     <%= form.text_field :area, id: :property_area %>
   </div>
-
+   <div class="field">
+    <%= form.label :precio %>
+    <%= form.text_field :precio, id: :property_precio %>
+  </div>
   <div class="field">
     <%= form.label :status %>
     <%= form.text_field :status, id: :property_status %>
