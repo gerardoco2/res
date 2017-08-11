@@ -1,0 +1,25 @@
+<%= form_for @picture ,  url: pictures_path, html: { multipart: true }  do |form| %>
+  <% if @picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this @picture from being saved:</h2>
+
+      <ul>
+      <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :property_id %>
+    <%= form.text_field :property_id, id: :picture_property_id %>
+  </div>
+ <div class="field">
+    
+    <%= form.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

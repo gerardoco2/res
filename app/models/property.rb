@@ -3,4 +3,5 @@ class Property < ApplicationRecord
 	belongs_to :owner
 	belongs_to :estado
 	belongs_to :ciudad
+	has_many :pictures
 end
