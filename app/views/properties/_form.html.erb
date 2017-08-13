@@ -1,4 +1,4 @@
-<%= form_for [@owner, @property] do |form| %>
+<%= form_for [@owner, @property], html: { multipart: true} do |form| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -11,9 +11,13 @@
     </div>
   <% end %>
 
+<div class="fields">
+    <%= form.fields_for :pictures do |builder| %>
+      <%= builder.file_field :image %>
+    <% end %>
+</div>
 
-
-<div class="field">
+  <div class="field">
     <%= form.label :titulo %>
     <%= form.text_field :titulo, id: :property_titulo %>
   </div>
