@@ -1,4 +1,4 @@
-<%= form_for [@owner, @property], html: { multipart: true} do |form| %>
+<%= form_for [@owner, @property], html: { multipart: true} do |f| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -12,60 +12,62 @@
   <% end %>
 
 <div class="fields">
-    <%= form.fields_for :pictures do |builder| %>
-      <%= builder.file_field :image %>
+    <%= f.fields_for :pictures do |builder| %>
+      <%= render 'picture_fields', f: builder %>
+      
     <% end %>
+    
 </div>
-
+ <%= link_to_add_association 'Agregar', f, :pictures %>
   <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo, id: :property_titulo %>
+    <%= f.label :titulo %>
+    <%= f.text_field :titulo, id: :property_titulo %>
   </div>
   <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_field :direccion, id: :property_direccion %>
-  </div>
-
-  <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_field :descripcion, id: :property_descripcion %>
+    <%= f.label :direccion %>
+    <%= f.text_field :direccion, id: :property_direccion %>
   </div>
 
   <div class="field">
-    <%= form.label :nro_hab %>
-    <%= form.number_field :nro_hab, id: :property_nro_hab %>
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion, id: :property_descripcion %>
   </div>
 
   <div class="field">
-    <%= form.label :nro_bannos %>
-    <%= form.number_field :nro_bannos, id: :property_nro_bannos %>
+    <%= f.label :nro_hab %>
+    <%= f.number_field :nro_hab, id: :property_nro_hab %>
   </div>
 
   <div class="field">
-    <%= form.label :area %>
-    <%= form.text_field :area, id: :property_area %>
+    <%= f.label :nro_bannos %>
+    <%= f.number_field :nro_bannos, id: :property_nro_bannos %>
+  </div>
+
+  <div class="field">
+    <%= f.label :area %>
+    <%= f.text_field :area, id: :property_area %>
   </div>
    <div class="field">
-    <%= form.label :precio %>
-    <%= form.text_field :precio, id: :property_precio %>
+    <%= f.label :precio %>
+    <%= f.text_field :precio, id: :property_precio %>
   </div>
   <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status, id: :property_status %>
+    <%= f.label :status %>
+    <%= f.text_field :status, id: :property_status %>
   </div>
   <div class="field">
-    <%= form.label :tipo_prop_id %>
+    <%= f.label :tipo_prop_id %>
     <%= collection_select( :property, :tipo_prop_id, TipoProp.all, :id, :nombre, {}) %>
   </div>
   <div class="field">
-    <%= form.label :estado_id %>
-    <%= form.collection_select( :estado_id, Estado.all, :id, :nombre, { include_blank: 'Seleccione'})  %>
+    <%= f.label :estado_id %>
+    <%= f.collection_select( :estado_id, Estado.all, :id, :nombre, { include_blank: 'Seleccione'})  %>
   </div>
   <div class="field">
-    <%= form.label :ciudad_id %>
-    <%= form.collection_select(:ciudad_id, Ciudad.all, :id, :nombre, { include_blank: 'Seleccione'})%>
+    <%= f.label :ciudad_id %>
+    <%= f.collection_select(:ciudad_id, Ciudad.all, :id, :nombre, { include_blank: 'Seleccione'})%>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
